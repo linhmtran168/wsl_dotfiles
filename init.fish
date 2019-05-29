@@ -16,6 +16,8 @@ end
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # ssh-agent-wsl
 bass (/c/bin/ssh-agent/ssh-agent-wsl -r)
+# dir colors
+bass (dircolors ~/wsl_dotfiles/dircolors.base16.dark)
 # Directory
 alias dev='cd /c/Users/linhm/Dev'
 # tmux
