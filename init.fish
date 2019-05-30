@@ -16,6 +16,11 @@ end
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # ssh-agent-wsl
 bass (/c/bin/ssh-agent/ssh-agent-wsl -r)
+# link ssh agent pid to a temp file
+if [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]
+    ln -sf $SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+    set -xg SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+end
 # dir colors
 bass (dircolors ~/wsl_dotfiles/dircolors.base16.dark)
 # Directory
