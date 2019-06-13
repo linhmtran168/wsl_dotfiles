@@ -3,6 +3,9 @@ set -xg LC_ALL en_US.UTF-8
 set -xg LANG en_US.UTF-8
 # Docker
 set -xg DOCKER_HOST "tcp://localhost:2375"
+# Default editor
+set -xg VISUAL "vim"
+set -xg EDITOR "$VISUAL"
 # Set path
 set --universal fish_user_paths $fish_user_paths $HOME/bin $HOME/.local/bin
 
