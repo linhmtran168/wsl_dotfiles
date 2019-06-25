@@ -18,7 +18,7 @@ end
 # Linuxbrew
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # ssh-agent-wsl
-bass (/c/bin/ssh-agent/ssh-agent-wsl -r)
+bass (/c/Users/linhm/scoop/apps/ssh-agent-wsl/current/ssh-agent-wsl -r -b)
 # link ssh agent pid to a temp file
 if [ "$SSH_AUTH_SOCK" != "$HOME/.ssh/ssh_auth_sock" ]
     ln -sf $SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
