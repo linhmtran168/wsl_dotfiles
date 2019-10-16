@@ -8,7 +8,7 @@ set -xg DOCKER_HOST "tcp://localhost:2375"
 set -xg VISUAL "vim"
 set -xg EDITOR "$VISUAL"
 # Set path
-set --universal fish_user_paths $fish_user_paths $HOME/bin $HOME/.local/bin $HOME/go/bin $GOPATH/bin
+set --universal fish_user_paths $fish_user_paths $HOME/bin $HOME/.local/bin $HOME/go/bin $GOPATH/bin $HOME/.cargo/bin
 
 # Base16 Shell
 if status --is-interactive
