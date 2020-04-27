@@ -19,8 +19,6 @@ if status --is-interactive
     source "$BASE16_SHELL/profile_helper.fish"
 end
 
-# Direnv
-eval (direnv hook fish)
 # Linuxbrew
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 # wsl-ssh-agent
