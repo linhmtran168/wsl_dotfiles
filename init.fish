@@ -46,3 +46,10 @@ alias tmk='tmux kill-session -t'
 # up memory, this command will free your memory after about 20-30 seconds.
 # Details: https://github.com/microsoft/WSL/issues/4166#issuecomment-628493643
 alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\"" 
+
+# Python
+alias pip=pip3
+
+# Kubernetes
+alias k9sDanger=/home/linuxbrew/.linuxbrew/bin/k9s
+alias k9s='k9s --readonly'
