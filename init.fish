@@ -4,12 +4,12 @@ set -xg LANG en_US.UTF-8
 # Go
 set -xg GOPATH "$HOME/go"
 # Java Home
-set -xg JAVA_HOME "/home/linuxbrew/.linuxbrew/opt/openjdk"
+set -xg JAVA_HOME "/usr/lib/jvm/java-1.14.0-openjdk-amd64"
 # Default editor
 set -xg VISUAL "vim"
 set -xg EDITOR "$VISUAL"
 # Set path
-set --universal fish_user_paths $HOME/bin $HOME/.local/bin $HOME/go/bin $GOPATH/bin $HOME/.cargo/bin $HOME/.krew/bin $HOME/.composer/vendor/bin /home/linuxbrew/.linuxbrew/opt/openjdk/bin 
+set --universal fish_user_paths $HOME/bin $HOME/.local/bin $HOME/go/bin $GOPATH/bin $HOME/.cargo/bin $HOME/.krew/bin $HOME/.composer/vendor/bin /home/linuxbrew/.linuxbrew/opt/openjdk/bin $HOME/.cargo/bin
 
 # Base16 Shell
 if status --is-interactive
@@ -19,6 +19,13 @@ end
 
 # Linuxbrew
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+
+# Starship
+starship init fish | source
+
+# FZF
+set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
+source $HOME/wsl_dotfiles/fzf.fish
 
 # Ssh agent
 set -xg SSH_AUTH_SOCK $HOME/.ssh/agent.sock
