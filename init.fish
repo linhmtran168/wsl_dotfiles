@@ -28,12 +28,19 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore-vcs --hidden'
 source $HOME/wsl_dotfiles/fzf.fish
 
 # Ssh agent
-set -xg SSH_AUTH_SOCK $HOME/.ssh/agent.sock
-ss -a | grep -q $SSH_AUTH_SOCK
-if test $status -ne 0
+function set_ssh_agent
+	set -xg SSH_AUTH_SOCK $HOME/.ssh/agent.sock
+	ss -a | grep -q $SSH_AUTH_SOCK
+	if test $status -ne 0
+	    rm -f $SSH_AUTH_SOCK
+	    setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/c/tools/wsl-ssh-agent/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &
+	end
+end
+function reset_ssh_agent
     rm -f $SSH_AUTH_SOCK
     setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"/c/tools/wsl-ssh-agent/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &
 end
+set_ssh_agent
 
 # dir colors
 bass (dircolors ~/wsl_dotfiles/dircolors.base16.dark)
